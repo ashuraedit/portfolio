@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Portfolio - Maalamalu Fitialeata</title>
   <style>
-    /* --- Reset léger --- */
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -17,7 +15,7 @@
     /* ======== BANNIERE ======== */
     .banner {
       position: relative;
-      height: 85vh;                 /* grande bannière */
+      height: 85vh;
       min-height: 420px;
       display: flex;
       align-items: center;
@@ -26,20 +24,20 @@
       text-align: center;
     }
 
-    /* image en background : changez 'banner.jpg' par le nom de votre image */
+    /* image de fond */
     .banner::before {
       content: "";
       position: absolute;
-      inset: 0;                     /* top:0; right:0; bottom:0; left:0 */
-      background-image: url('banner.jpg');
+      inset: 0;
+      background-image: url('channels4_banner.jpg'); /* ton image */
       background-size: cover;
       background-position: center;
-      transform: scale(1.07);       /* léger zoom au départ */
-      animation: bannerZoom 7s ease-in-out infinite alternate;
+      transform: scale(1.05);
+      animation: bannerZoom 8s ease-in-out infinite alternate;
       z-index: 0;
     }
 
-    /* voile sombre pour lisibilité */
+    /* voile sombre pour contraste */
     .banner::after {
       content: "";
       position: absolute;
@@ -48,7 +46,7 @@
       z-index: 1;
     }
 
-    /* conteneur texte au-dessus de l'image */
+    /* contenu par-dessus */
     .banner .content {
       position: relative;
       z-index: 2;
@@ -57,15 +55,15 @@
 
     .banner h1 {
       margin: 0;
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, serif;
       font-weight: 700;
       letter-spacing: 6px;
-      font-size: clamp(3rem, 7vw, 6rem); /* responsive */
+      font-size: clamp(3rem, 7vw, 6rem);
       line-height: 0.9;
       transform: translateY(30px);
       opacity: 0;
       animation: titleIn 1s forwards 0.3s;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
     }
 
     .banner p {
@@ -78,9 +76,9 @@
       color: #f1f1f1;
     }
 
-    /* animations */
+    /* Animations */
     @keyframes bannerZoom {
-      0% { transform: scale(1.03); }
+      0% { transform: scale(1.02); }
       100% { transform: scale(1.08); }
     }
     @keyframes titleIn {
@@ -92,14 +90,14 @@
 
     /* ======== CONTENU ======== */
     main {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.02), transparent 20%);
       padding: 50px 16px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent 20%);
     }
 
     .container {
       max-width: 900px;
       margin: 0 auto;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.05);
       padding: 28px;
       border-radius: 10px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.25);
@@ -109,94 +107,81 @@
       margin-top: 0;
       color: #ffd07a;
       text-align: center;
-      font-size: 1.6rem;
     }
 
     p {
       color: #f3f3f3;
       text-align: justify;
       line-height: 1.6;
-      margin-bottom: 1rem;
-      font-size: 1rem;
     }
 
-    /* ======== RESEAUX (boutons encadrés cliquables) ======== */
+    /* Boutons réseaux */
     .socials {
       display: flex;
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     .socials a {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
       min-width: 140px;
       padding: 12px 18px;
       color: #fff;
       text-decoration: none;
       border-radius: 10px;
-      border: 2px solid rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.03);
-      font-weight: 700;
-      transition: transform .18s ease, background .18s ease, color .18s ease;
-      z-index: 3;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.05);
+      font-weight: bold;
+      transition: 0.2s;
     }
 
-    .socials a:hover,
-    .socials a:focus {
-      transform: translateY(-6px);
+    .socials a:hover {
       background: #fff;
       color: #000;
       border-color: #fff;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-    }
-
-    /* responsive spacing */
-    @media (max-width:600px) {
-      .banner { height: 60vh; min-height: 360px; }
-      .socials a { min-width: 110px; padding: 10px 14px; font-size: 0.95rem; }
+      transform: translateY(-4px);
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== BANNIERE ===== -->
-  <header class="banner" role="banner" aria-label="Bannière du portfolio">
+  <!-- BANNIERE -->
+  <header class="banner">
     <div class="content">
       <h1>PORTFOLIO</h1>
       <p>Maalamalu Fitialeata</p>
     </div>
   </header>
 
-  <!-- ===== CONTENU ===== -->
+  <!-- CONTENU -->
   <main>
     <div class="container">
       <h2>À propos de moi</h2>
       <p>
         Je m’appelle <strong>Maalamalu Fitialeata</strong> (pseudo : <strong>ASHURA.VFX</strong>).
         Actuellement étudiant en Systèmes d’Information de Gestion après un parcours en mercatique, je m'intéresse au
-        croisement entre gestion, données et création visuelle. J’aime apprendre par la pratique et réaliser des projets concrets.
+        croisement entre gestion, données et création visuelle.
       </p>
       <p>
-        Passionné par le montage vidéo et la production d'images (AMV, edits), je développe mes compétences techniques en montage
-        tout en approfondissant mes connaissances en développement web et gestion de projet. Ce portfolio rassemble mes réalisations
-        et mes expérimentations visuelles.
+        Passionné par le montage vidéo et la production d'images (AMV, edits), je développe mes compétences techniques
+        en montage tout en approfondissant mes connaissances en développement web et gestion de projet.
       </p>
 
-      <h2>Retrouvez-moi</h2>
-      <div class="socials" aria-label="Liens réseaux sociaux">
-        <a href="https://www.youtube.com/@ASHURA.VFX_" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.tiktok.com/@ashura.vfx" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.instagram.com/ashura.ed" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <h2>Mes réseaux</h2>
+      <div class="socials">
+        <a href="https://www.youtube.com/@ASHURA.VFX_" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@ashura.vfx" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/ashura.ed" target="_blank">Instagram</a>
       </div>
     </div>
   </main>
 
 </body>
 </html>
+
 
 
 
