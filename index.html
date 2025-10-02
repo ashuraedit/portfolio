@@ -13,45 +13,69 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      background-color: black; /* au cas où l'image ne charge pas */
+      background-color: #0a0a23; /* noir + bleu très foncé */
+    }
+
+    /* Animation de fade-in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Section accueil */
     .hero {
-      height: 40vh;
+      height: 35vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       text-align: center;
       text-shadow: 2px 2px 8px black;
+      animation: fadeIn 2s ease-in-out;
     }
     .hero h1 {
-      font-size: 50px;
+      font-size: 45px;
       margin: 0;
     }
     .hero h2 {
-      font-size: 24px;
+      font-size: 22px;
       margin-top: 5px;
     }
 
     /* Style des sections */
     section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 25px;
-      background: rgba(0, 0, 0, 0.8); /* fond noir semi-transparent */
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7); /* noir transparent */
+      border: 2px solid #444; /* encadré gris foncé */
       border-radius: 12px;
+      animation: fadeIn 1.5s ease-in-out;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
+    section:nth-of-type(1) { animation-delay: 0.5s; }
+    section:nth-of-type(2) { animation-delay: 1s; }
+    section:nth-of-type(3) { animation-delay: 1.5s; }
+    section:nth-of-type(4) { animation-delay: 2s; }
+    section:nth-of-type(5) { animation-delay: 2.5s; }
+    section:nth-of-type(6) { animation-delay: 3s; }
+
     section h2 {
       text-align: center;
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: white; /* titres blancs */
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: white;
     }
     section p, section ul {
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 16px;
+      line-height: 1.6;
     }
     ul {
       list-style-type: "✔ ";
@@ -62,15 +86,15 @@
     .socials {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 15px;
     }
     .social-card {
       background: #111;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 18px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
       text-decoration: none;
       color: white;
@@ -155,7 +179,7 @@
     </div>
   </section>
 </body>
-</html>
+
 
 
 
