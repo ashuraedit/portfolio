@@ -1,121 +1,161 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Maalamalu Fitialeata</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            background-image: url("channels4_banner.jpg"); /* ton image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Maalamalu Fitialeata</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url("channels4_banner.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-        /* Section titre */
-        .hero {
-            height: 30vh; /* moins de place */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* colle le titre en haut */
-            align-items: center;
-            text-align: center;
-            padding-bottom: 20px;
-            text-shadow: 2px 2px 8px black;
-        }
+    /* Section accueil */
+    .hero {
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      text-shadow: 2px 2px 8px black;
+    }
+    .hero h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+    .hero h2 {
+      font-size: 24px;
+      margin-top: 5px;
+    }
 
-        .hero h1 {
-            font-size: 50px;
-            margin: 0;
-        }
+    /* Style des sections */
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+    section p, section ul {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    ul {
+      list-style-type: "✔ ";
+      padding-left: 20px;
+    }
 
-        .hero h2 {
-            font-size: 22px;
-            margin-top: 5px;
-        }
-
-        /* Section biographie */
-        .bio {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.7); /* fond semi-transparent */
-            border-radius: 12px;
-            font-size: 20px;
-            line-height: 1.8;
-        }
-
-        .bio h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .bio h3 {
-            margin-top: 25px;
-            font-size: 24px;
-            color: #ffd700; /* doré */
-        }
-
-        .bio ul {
-            list-style-type: "✔ ";
-            padding-left: 20px;
-        }
-    </style>
+    /* Réseaux sociaux */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .social-card {
+      background: #222;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      border: 2px solid #ffd700;
+      transition: 0.3s;
+    }
+    .social-card:hover {
+      background: #ffd700;
+      color: black;
+    }
+  </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>PORTFOLIO</h1>
-        <h2>Maalamalu Fitialeata</h2>
+  <!-- ACCUEIL -->
+  <div class="hero">
+    <h1>PORTFOLIO</h1>
+    <h2>Maalamalu Fitialeata</h2>
+  </div>
+
+  <!-- BIO -->
+  <section>
+    <h2>Biographie</h2>
+    <p>
+      Je m'appelle <strong>Maalamalu Fitialeata</strong>, actuellement étudiant en 
+      <strong>Systèmes d'Information de Gestion (SIG)</strong> après un parcours initial en 
+      <strong>mercatique</strong>. Curieux et motivé, j’ai choisi ce domaine pour développer des 
+      compétences techniques, analytiques et organisationnelles.
+    </p>
+  </section>
+
+  <!-- PARCOURS -->
+  <section>
+    <h2>Parcours scolaire</h2>
+    <p>
+      Après avoir étudié la mercatique, j’ai décidé de me réorienter vers les 
+      <strong>Systèmes d’Information de Gestion</strong>.  
+      Ce choix me permet de combiner mes connaissances en management, commerce et analyse de données 
+      avec une approche plus tournée vers le numérique et la gestion de l’information.
+    </p>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section>
+    <h2>Compétences</h2>
+    <ul>
+      <li>HTML, CSS et bases du développement web</li>
+      <li>Montage vidéo sur After Effects</li>
+      <li>Création d’AMV (Anime Music Videos)</li>
+      <li>Notions de mercatique et de gestion de projet</li>
+      <li>Esprit d’équipe et adaptabilité</li>
+    </ul>
+  </section>
+
+  <!-- PASSIONS -->
+  <section>
+    <h2>Passions & Projets</h2>
+    <p>
+      Ma passion principale est le <strong>montage vidéo</strong>.  
+      Je produis régulièrement des <strong>AMV (Anime Music Videos)</strong> que je partage sur mes réseaux sociaux 
+      sous le pseudo <strong>Ashura</strong>.  
+      Pour moi, le montage est une forme d’art, un moyen de raconter des histoires à travers l’image et la musique.
+    </p>
+  </section>
+
+  <!-- OBJECTIFS -->
+  <section>
+    <h2>Objectifs</h2>
+    <p>
+      Mon objectif est de développer un parcours professionnel qui relie mes passions pour le 
+      <strong>digital</strong>, la <strong>création visuelle</strong> et la <strong>gestion</strong>.  
+      À long terme, j’aimerais travailler dans un domaine qui combine management, créativité et technologie.
+    </p>
+  </section>
+
+  <!-- RÉSEAUX -->
+  <section>
+    <h2>Réseaux sociaux</h2>
+    <div class="socials">
+      <a href="https://www.youtube.com/@ASHURA.VFX_" target="_blank" class="social-card">YouTube</a>
+      <a href="https://www.tiktok.com/@ashura.vfx" target="_blank" class="social-card">TikTok</a>
+      <a href="https://www.instagram.com/ashura.ed" target="_blank" class="social-card">Instagram</a>
     </div>
-
-    <!-- Biographie -->
-    <section class="bio">
-        <h2>Biographie</h2>
-        <p>
-            Je m'appelle <strong>Maalamalu Fitialeata</strong>, actuellement étudiant en 
-            <strong>Systèmes d'Information de Gestion (SIG)</strong> après un parcours initial en 
-            <strong>mercatique</strong>.  
-            Curieux et motivé, j’ai choisi ce domaine pour développer des compétences à la fois techniques, analytiques et organisationnelles.
-        </p>
-
-        <h3>🎓 Parcours scolaire</h3>
-        <p>
-            Après avoir étudié la mercatique, j’ai décidé de me réorienter vers les 
-            <strong>Systèmes d’Information de Gestion</strong>.  
-            Ce choix me permet de combiner mes connaissances en management, commerce et analyse de données avec une approche plus tournée vers le numérique et la gestion de l’information.
-        </p>
-
-        <h3>💻 Compétences</h3>
-        <ul>
-            <li>HTML, CSS et début en développement web</li>
-            <li>Montage vidéo sur After Effects</li>
-            <li>Création d’AMV (Anime Music Videos)</li>
-            <li>Notions de mercatique et de gestion de projet</li>
-            <li>Bonne capacité d’adaptation et esprit d’équipe</li>
-        </ul>
-
-        <h3>🎨 Passions & Projets</h3>
-        <p>
-            Ma passion principale est le <strong>montage vidéo</strong>.  
-            Je produis régulièrement des <strong>AMV (Anime Music Videos)</strong> que je partage sur mes réseaux sociaux 
-            (YouTube, TikTok et Instagram) sous le pseudo <strong>Ashura</strong>.  
-            Pour moi, le montage est une forme d’art, un moyen de raconter des histoires à travers l’image et la musique.
-        </p>
-
-        <h3>🚀 Objectifs</h3>
-        <p>
-            Mon objectif est de développer un parcours professionnel qui relie mes passions pour le <strong>digital</strong>, 
-            la <strong>création visuelle</strong> et la <strong>gestion</strong>.  
-            À long terme, j’aimerais travailler dans un domaine qui combine management, créativité et technologie.
-        </p>
-    </section>
+  </section>
 </body>
 </html>
+
 
 
 
