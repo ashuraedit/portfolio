@@ -1,187 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Portfolio - Maalamalu Fitialeata</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-      background: #000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Maalamalu Fitialeata</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-image: url("channels4_banner.jpg"); /* ton image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-    /* ======== BANNIERE ======== */
-    .banner {
-      position: relative;
-      height: 85vh;
-      min-height: 420px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-    }
+        /* Section titre */
+        .hero {
+            height: 30vh; /* moins de place */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* colle le titre en haut */
+            align-items: center;
+            text-align: center;
+            padding-bottom: 20px;
+            text-shadow: 2px 2px 8px black;
+        }
 
-    /* image de fond */
-    .banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('./channels4_banner.jpg');
- /* ton image */
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.05);
-      animation: bannerZoom 8s ease-in-out infinite alternate;
-      z-index: 0;
-    }
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
 
-    /* voile sombre pour contraste */
-    .banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 1;
-    }
+        .hero h2 {
+            font-size: 22px;
+            margin-top: 5px;
+        }
 
-    /* contenu par-dessus */
-    .banner .content {
-      position: relative;
-      z-index: 2;
-      padding: 0 20px;
-    }
+        /* Section biographie */
+        .bio {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7); /* fond semi-transparent */
+            border-radius: 12px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
 
-    .banner h1 {
-      margin: 0;
-      font-family: Georgia, serif;
-      font-weight: 700;
-      letter-spacing: 6px;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.9;
-      transform: translateY(30px);
-      opacity: 0;
-      animation: titleIn 1s forwards 0.3s;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
-    }
+        .bio h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
 
-    .banner p {
-      margin: 12px 0 0;
-      font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.6rem);
-      opacity: 0;
-      transform: translateY(10px);
-      animation: subtitleIn 1s forwards 0.9s;
-      color: #f1f1f1;
-    }
+        .bio h3 {
+            margin-top: 25px;
+            font-size: 24px;
+            color: #ffd700; /* doré */
+        }
 
-    /* Animations */
-    @keyframes bannerZoom {
-      0% { transform: scale(1.02); }
-      100% { transform: scale(1.08); }
-    }
-    @keyframes titleIn {
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes subtitleIn {
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ======== CONTENU ======== */
-    main {
-      padding: 50px 16px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent 20%);
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.05);
-      padding: 28px;
-      border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #ffd07a;
-      text-align: center;
-    }
-
-    p {
-      color: #f3f3f3;
-      text-align: justify;
-      line-height: 1.6;
-    }
-
-    /* Boutons réseaux */
-    .socials {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .socials a {
-      display: inline-flex;
-      justify-content: center;
-      min-width: 140px;
-      padding: 12px 18px;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      border: 2px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.05);
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .socials a:hover {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-      transform: translateY(-4px);
-    }
-  </style>
+        .bio ul {
+            list-style-type: "✔ ";
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
-
-  <!-- BANNIERE -->
-  <header class="banner">
-    <div class="content">
-      <h1>PORTFOLIO</h1>
-      <p>Maalamalu Fitialeata</p>
+    <div class="hero">
+        <h1>PORTFOLIO</h1>
+        <h2>Maalamalu Fitialeata</h2>
     </div>
-  </header>
 
-  <!-- CONTENU -->
-  <main>
-    <div class="container">
-      <h2>À propos de moi</h2>
-      <p>
-        Je m’appelle <strong>Maalamalu Fitialeata</strong> (pseudo : <strong>ASHURA.VFX</strong>).
-        Actuellement étudiant en Systèmes d’Information de Gestion après un parcours en mercatique, je m'intéresse au
-        croisement entre gestion, données et création visuelle.
-      </p>
-      <p>
-        Passionné par le montage vidéo et la production d'images (AMV, edits), je développe mes compétences techniques
-        en montage tout en approfondissant mes connaissances en développement web et gestion de projet.
-      </p>
+    <!-- Biographie -->
+    <section class="bio">
+        <h2>Biographie</h2>
+        <p>
+            Je m'appelle <strong>Maalamalu Fitialeata</strong>, actuellement étudiant en 
+            <strong>Systèmes d'Information de Gestion (SIG)</strong> après un parcours initial en 
+            <strong>mercatique</strong>.  
+            Curieux et motivé, j’ai choisi ce domaine pour développer des compétences à la fois techniques, analytiques et organisationnelles.
+        </p>
 
-      <h2>Mes réseaux</h2>
-      <div class="socials">
-        <a href="https://www.youtube.com/@ASHURA.VFX_" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@ashura.vfx" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/ashura.ed" target="_blank">Instagram</a>
-      </div>
-    </div>
-  </main>
+        <h3>🎓 Parcours scolaire</h3>
+        <p>
+            Après avoir étudié la mercatique, j’ai décidé de me réorienter vers les 
+            <strong>Systèmes d’Information de Gestion</strong>.  
+            Ce choix me permet de combiner mes connaissances en management, commerce et analyse de données avec une approche plus tournée vers le numérique et la gestion de l’information.
+        </p>
 
+        <h3>💻 Compétences</h3>
+        <ul>
+            <li>HTML, CSS et début en développement web</li>
+            <li>Montage vidéo sur After Effects</li>
+            <li>Création d’AMV (Anime Music Videos)</li>
+            <li>Notions de mercatique et de gestion de projet</li>
+            <li>Bonne capacité d’adaptation et esprit d’équipe</li>
+        </ul>
+
+        <h3>🎨 Passions & Projets</h3>
+        <p>
+            Ma passion principale est le <strong>montage vidéo</strong>.  
+            Je produis régulièrement des <strong>AMV (Anime Music Videos)</strong> que je partage sur mes réseaux sociaux 
+            (YouTube, TikTok et Instagram) sous le pseudo <strong>Ashura</strong>.  
+            Pour moi, le montage est une forme d’art, un moyen de raconter des histoires à travers l’image et la musique.
+        </p>
+
+        <h3>🚀 Objectifs</h3>
+        <p>
+            Mon objectif est de développer un parcours professionnel qui relie mes passions pour le <strong>digital</strong>, 
+            la <strong>création visuelle</strong> et la <strong>gestion</strong>.  
+            À long terme, j’aimerais travailler dans un domaine qui combine management, créativité et technologie.
+        </p>
+    </section>
 </body>
 </html>
+
 
 
 
