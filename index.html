@@ -1,184 +1,244 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Portfolio - Maalamalu Fitialeata</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
+    :root{
+      --bg-fallback: #0a0a0a;
+      --card-bg: rgba(0,0,0,0.78);
+      --card-border: rgba(255,255,255,0.08);
+      --accent: #dcdcdc; /* couleur qui va avec le noir */
+      --text: #ffffff;
+    }
+
+    /* reset léger */
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background-color:var(--bg-fallback);
+      /* image de fond : met channels4_banner.jpg dans le même dossier */
       background-image: url("channels4_banner.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      background-color: #0a0a23; /* noir + bleu très foncé */
     }
 
-    /* Animation de fade-in */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* overlay sombre pour lisibilité */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,0.35);
+      pointer-events:none;
+      z-index:0;
     }
 
-    /* Section accueil */
-    .hero {
-      height: 35vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-align: center;
-      text-shadow: 2px 2px 8px black;
-      animation: fadeIn 2s ease-in-out;
-    }
-    .hero h1 {
-      font-size: 45px;
-      margin: 0;
-    }
-    .hero h2 {
-      font-size: 22px;
-      margin-top: 5px;
+    /* animation fade-up pour les sections */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Style des sections */
-    section {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7); /* noir transparent */
-      border: 2px solid #444; /* encadré gris foncé */
-      border-radius: 12px;
-      animation: fadeIn 1.5s ease-in-out;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-    section:nth-of-type(1) { animation-delay: 0.5s; }
-    section:nth-of-type(2) { animation-delay: 1s; }
-    section:nth-of-type(3) { animation-delay: 1.5s; }
-    section:nth-of-type(4) { animation-delay: 2s; }
-    section:nth-of-type(5) { animation-delay: 2.5s; }
-    section:nth-of-type(6) { animation-delay: 3s; }
-
-    section h2 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 12px;
-      color: white;
-    }
-    section p, section ul {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    ul {
-      list-style-type: "✔ ";
-      padding-left: 20px;
+    /* ===== HERO (accueil) ===== */
+    header.hero{
+      position:relative;
+      z-index:2;
+      height:35vh;
+      min-height:200px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end; /* remonte le contenu */
+      align-items:center;
+      text-align:center;
+      padding-bottom:22px;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
     }
 
-    /* Réseaux sociaux */
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 15px;
+    header.hero h1{
+      margin:0;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      letter-spacing:4px;
+      color:var(--text);
     }
-    .social-card {
-      background: #111;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-      color: white;
-      border: 2px solid white;
-      transition: 0.3s;
+
+    header.hero h2{
+      margin:6px 0 0;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color:var(--accent);
+      font-weight:500;
     }
-    .social-card:hover {
-      background: white;
-      color: black;
+
+    /* ===== Sections encadrées ===== */
+    main{position:relative; z-index:2; padding: 18px 12px 60px;}
+
+    section.card{
+      max-width:820px;
+      margin:18px auto;
+      padding:18px 22px;
+      background: var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:10px;
+      color:var(--text);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+      opacity:0; /* départ caché */
+      transform: translateY(12px);
+      animation: fadeUp 0.7s ease-out forwards;
+    }
+
+    /* décaler les délais pour apparition progressive */
+    section.card:nth-of-type(1){ animation-delay: 0.35s; }
+    section.card:nth-of-type(2){ animation-delay: 0.65s; }
+    section.card:nth-of-type(3){ animation-delay: 0.95s; }
+    section.card:nth-of-type(4){ animation-delay: 1.25s; }
+    section.card:nth-of-type(5){ animation-delay: 1.55s; }
+    section.card:nth-of-type(6){ animation-delay: 1.85s; }
+
+    /* titres sections */
+    section.card h2{
+      margin-top:0;
+      margin-bottom:10px;
+      font-size:1.25rem;
+      text-align:center;
+      color:var(--text);
+    }
+
+    section.card p{
+      margin:0 0 0.9rem 0;
+      line-height:1.65;
+      font-size:0.99rem;
+      color:var(--accent);
+      text-align:justify;
+    }
+
+    /* liste stylée (remplace list-style-type string) */
+    ul.clean-list{
+      padding-left:18px;
+      margin:0;
+    }
+    ul.clean-list li{
+      margin:8px 0;
+      position:relative;
+      padding-left:26px;
+      color:var(--accent);
+    }
+    ul.clean-list li::before{
+      content: "✔";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--text);
+      font-weight:700;
+      font-size:0.95rem;
+      line-height:1;
+    }
+
+    /* réseaux - petits encadrés cliquables */
+    .socials{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .social-card{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:8px;
+      background: rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.95rem;
+      transition: transform .16s ease, background .16s ease, color .16s ease;
+    }
+    .social-card:hover,
+    .social-card:focus{
+      transform: translateY(-6px);
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    /* responsive */
+    @media (max-width:640px){
+      header.hero{ height:28vh; padding-bottom:14px; }
+      header.hero h1{ font-size: clamp(1.6rem, 9vw, 2.6rem); }
+      section.card{ margin:12px 10px; padding:14px; }
+      ul.clean-list li{ padding-left:22px; }
     }
   </style>
 </head>
 <body>
-  <!-- ACCUEIL -->
-  <div class="hero">
+  <header class="hero" role="banner" aria-label="Bannière">
     <h1>PORTFOLIO</h1>
     <h2>Maalamalu Fitialeata</h2>
-  </div>
+  </header>
 
-  <!-- BIO -->
-  <section>
-    <h2>Biographie</h2>
-    <p>
-      Je m'appelle <strong>Maalamalu Fitialeata</strong>, actuellement étudiant en 
-      <strong>Systèmes d'Information de Gestion (SIG)</strong> après un parcours initial en 
-      <strong>mercatique</strong>. Curieux et motivé, j’ai choisi ce domaine pour développer des 
-      compétences techniques, analytiques et organisationnelles.
-    </p>
-  </section>
+  <main>
+    <section class="card" aria-labelledby="bio-title">
+      <h2 id="bio-title">Biographie</h2>
+      <p>
+        Je m'appelle <strong>Maalamalu Fitialeata</strong>, actuellement étudiant en
+        <strong>Systèmes d'Information de Gestion (SIG)</strong> après un parcours initial en
+        <strong>mercatique</strong>. Curieux et motivé, j’ai choisi ce domaine pour développer des
+        compétences techniques, analytiques et organisationnelles.
+      </p>
+    </section>
 
-  <!-- PARCOURS -->
-  <section>
-    <h2>Parcours scolaire</h2>
-    <p>
-      Après avoir étudié la mercatique, j’ai décidé de me réorienter vers les 
-      <strong>Systèmes d’Information de Gestion</strong>.  
-      Ce choix me permet de combiner mes connaissances en management, commerce et analyse de données 
-      avec une approche plus tournée vers le numérique et la gestion de l’information.
-    </p>
-  </section>
+    <section class="card" aria-labelledby="parcours-title">
+      <h2 id="parcours-title">Parcours scolaire</h2>
+      <p>
+        Après une formation en mercatique, je me suis réorienté vers les Systèmes d’Information de Gestion.
+        Ce choix me permet de combiner la compréhension du marché, la gestion et l’analyse des données
+        avec des compétences techniques utiles au numérique.
+      </p>
+    </section>
 
-  <!-- COMPÉTENCES -->
-  <section>
-    <h2>Compétences</h2>
-    <ul>
-      <li>HTML, CSS et bases du développement web</li>
-      <li>Montage vidéo sur After Effects</li>
-      <li>Création d’AMV (Anime Music Videos)</li>
-      <li>Notions de mercatique et de gestion de projet</li>
-      <li>Esprit d’équipe et adaptabilité</li>
-    </ul>
-  </section>
+    <section class="card" aria-labelledby="competences-title">
+      <h2 id="competences-title">Compétences</h2>
+      <ul class="clean-list">
+        <li>HTML & CSS (bases)</li>
+        <li>Montage vidéo (After Effects)</li>
+        <li>Création d’AMV / edits</li>
+        <li>Notions de mercatique & gestion de projet</li>
+        <li>Capacité d’adaptation et travail en équipe</li>
+      </ul>
+    </section>
 
-  <!-- PASSIONS -->
-  <section>
-    <h2>Passions & Projets</h2>
-    <p>
-      Ma passion principale est le <strong>montage vidéo</strong>.  
-      Je produis régulièrement des <strong>AMV (Anime Music Videos)</strong> que je partage sur mes réseaux sociaux 
-      sous le pseudo <strong>Ashura</strong>.  
-      Pour moi, le montage est une forme d’art, un moyen de raconter des histoires à travers l’image et la musique.
-    </p>
-  </section>
+    <section class="card" aria-labelledby="passions-title">
+      <h2 id="passions-title">Passions & projets</h2>
+      <p>
+        Passionné par le montage vidéo, je réalise des AMV et des edits que je partage sous le pseudo
+        <strong>Ashura</strong>. J'explore aussi le développement web pour présenter mes créations en ligne.
+      </p>
+    </section>
 
-  <!-- OBJECTIFS -->
-  <section>
-    <h2>Objectifs</h2>
-    <p>
-      Mon objectif est de développer un parcours professionnel qui relie mes passions pour le 
-      <strong>digital</strong>, la <strong>création visuelle</strong> et la <strong>gestion</strong>.  
-      À long terme, j’aimerais travailler dans un domaine qui combine management, créativité et technologie.
-    </p>
-  </section>
+    <section class="card" aria-labelledby="objectifs-title">
+      <h2 id="objectifs-title">Objectifs</h2>
+      <p>
+        Mon objectif est de lier créativité et management : travailler sur des projets numériques
+        qui demandent à la fois sens esthétique et compétences organisationnelles.
+      </p>
+    </section>
 
-  <!-- RÉSEAUX -->
-  <section>
-    <h2>Réseaux sociaux</h2>
-    <div class="socials">
-      <a href="https://www.youtube.com/@ASHURA.VFX_" target="_blank" class="social-card">YouTube</a>
-      <a href="https://www.tiktok.com/@ashura.vfx" target="_blank" class="social-card">TikTok</a>
-      <a href="https://www.instagram.com/ashura.ed" target="_blank" class="social-card">Instagram</a>
-    </div>
-  </section>
+    <section class="card" aria-labelledby="reseaux-title">
+      <h2 id="reseaux-title">Réseaux sociaux</h2>
+      <div class="socials" role="navigation" aria-label="Liens réseaux sociaux">
+        <a class="social-card" href="https://www.youtube.com/@ASHURA.VFX_" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="social-card" href="https://www.tiktok.com/@ashura.vfx" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="social-card" href="https://www.instagram.com/ashura.ed" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </section>
+  </main>
 </body>
+</html>
 
 
 
